@@ -161,6 +161,11 @@
             <v-img class="skill_logo" src="../assets/flask.png" max-width="50">
             </v-img>
           </div>
+          <div>
+            <v-btn small color="primary" href="http://13.125.116.42/">
+              사이트로 이동
+            </v-btn>
+          </div>
         </v-layout>
       </v-parallax>
     </section>
