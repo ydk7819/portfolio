@@ -171,42 +171,59 @@
     </section>
 
     <section>
-      <v-parallax src="../assets/project2.png" height="600">
-        <v-layout column align-center justify-center>
-          <h1 class="mb-4 display-1 text-center">keep going</h1>
-          <div class="subheading mb-2 ">
-            팀 포트폴리오 웹/앱
-          </div>
-          <div class="text-center">
-            기간 : 19.07.01 ~ 19.08.16
-            <br />
-            팀 소개, 게시글 등록 및 관리가 가능한 반응형 웹입니다.
-            <br />
-            로그인, gitlab, 날씨 등의 API를 활용하였습니다.
-            <br />
-            전반적인 프론트엔드와 관리기능을 구현하였습니다.
-          </div>
-          <div class="my-4">
-            <v-img
-              class="skill_logo"
-              src="../assets/python.png"
-              max-width="50"
-            ></v-img>
-            <v-img
-              class="skill_logo"
-              src="../assets/mysql.png"
-              max-width="50"
-            ></v-img>
-            <v-img
-              class="skill_logo"
-              src="../assets/vue.png"
-              max-width="50"
-            ></v-img>
-            <v-img class="skill_logo" src="../assets/flask.png" max-width="50">
-            </v-img>
-          </div>
+      <v-container grid-list-xl>
+        <v-layout justify-center class="project_margin">
+          <v-layout xs12 md6 outbox>
+            <v-flex inbox>
+              <h1 class="mb-4 display-1">KEEP GOING</h1>
+              <div class="subheading mb-2 ">
+                팀 포트폴리오 웹/앱
+              </div>
+              <div>
+                기간 : 19.07.01 ~ 19.08.16
+                <br />
+                팀 소개, 게시글 등록 및 관리가 가능한 반응형 웹입니다.
+                <br />
+                로그인, gitlab, 날씨 등의 API를 활용하였습니다.
+                <br />
+                전반적인 프론트엔드와 관리기능을 구현하였습니다.
+              </div>
+              <div class="my-4">
+                <v-img
+                  class="skill_logo"
+                  src="../assets/python.png"
+                  max-width="50"
+                ></v-img>
+                <v-img
+                  class="skill_logo"
+                  src="../assets/mysql.png"
+                  max-width="50"
+                ></v-img>
+                <v-img
+                  class="skill_logo"
+                  src="../assets/vue.png"
+                  max-width="50"
+                ></v-img>
+                <v-img
+                  class="skill_logo"
+                  src="../assets/flask.png"
+                  max-width="50"
+                >
+                </v-img>
+              </div>
+            </v-flex>
+          </v-layout>
+          <v-flex xs12 md6 class="outbox">
+            <video
+              src="../assets/webapp.mp4"
+              loop
+              controls
+              width="600"
+              class="inbox"
+            ></video>
+          </v-flex>
         </v-layout>
-      </v-parallax>
+      </v-container>
     </section>
 
     <section>
@@ -319,5 +336,15 @@ export default {
 .skill_logo {
   display: inline-block !important;
   margin-left: 10px;
+}
+.project_margin {
+  margin-top: 150px !important;
+  margin-bottom: 150px !important;
+}
+.outbox {
+  text-align: center;
+}
+.inbox {
+  display: inline-block;
 }
 </style>
