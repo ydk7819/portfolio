@@ -158,6 +158,11 @@
               src="../assets/vue.png"
               max-width="50"
             ></v-img>
+            <v-img
+              class="skill_logo"
+              src="../assets/tensorflow.png"
+              max-width="50"
+            ></v-img>
             <v-img class="skill_logo" src="../assets/flask.png" max-width="50">
             </v-img>
           </div>
@@ -207,7 +212,7 @@
     <section>
       <v-container grid-list-xl>
         <v-layout row wrap justify-center class="my-12">
-          <v-flex xs12 sm4 offset-sm1>
+          <v-flex xs12 sm3>
             <v-card flat class="transparent">
               <v-card-title primary-title class="justify-center">
                 <h1 class="display-1 headline">Contact me</h1>
