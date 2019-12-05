@@ -167,6 +167,7 @@
             </v-img>
           </div>
         </v-layout>
+        <v-btn href="https://drive.google.com/open?id=1ihzGmDeQswtg5czPe1Zh_OA0d6fEzVab">pdf</v-btn>
       </v-parallax>
     </section>
 
@@ -213,15 +214,10 @@
               </div>
             </v-flex>
           </v-layout>
-          <v-flex xs12 md6 class="outbox">
-            <video
-              src="../assets/webapp.mp4"
-              loop
-              controls
-              width="600"
-              class="inbox"
-            ></video>
-          </v-flex>
+          <v-btn
+            href="https://drive.google.com/file/d/1LcYJDvQiPs1ERVHdRKDoe3nmhBOPVD-D/view?usp=sharing"
+            >pdf</v-btn
+          >
         </v-layout>
       </v-container>
     </section>
