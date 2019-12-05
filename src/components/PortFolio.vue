@@ -127,48 +127,50 @@
 
     <br />
     <section>
-      <v-parallax src="../assets/project1.png" height="600">
-        <v-layout column align-center justify-center>
-          <h1 class="mb-4 display-1 text-center">싸피일보</h1>
-          <div class="subheading mb-2 ">
-            기사 댓글 감정 분석 웹페이지
-          </div>
-          <div class="text-center">
-            기간 : 19.08.19 ~ 19.10.11
-            <br />
-            크롤링한 기사와 댓글을 분석하여 긍/부정을 알려줍니다.
-            <br />
-            댓글을 형태소로 나누어 logistic regression으로 분석합니다.
-            <br />
-            프론트엔드와 학습모델구현을 맡았습니다.
-          </div>
-          <div class="my-4">
-            <v-img
-              class="skill_logo"
-              src="../assets/python.png"
-              max-width="50"
-            ></v-img>
-            <v-img
-              class="skill_logo"
-              src="../assets/mysql.png"
-              max-width="50"
-            ></v-img>
-            <v-img
-              class="skill_logo"
-              src="../assets/vue.png"
-              max-width="50"
-            ></v-img>
-            <v-img
-              class="skill_logo"
-              src="../assets/tensorflow.png"
-              max-width="50"
-            ></v-img>
-            <v-img class="skill_logo" src="../assets/flask.png" max-width="50">
-            </v-img>
-          </div>
-        </v-layout>
-        <v-btn href="https://drive.google.com/open?id=1ihzGmDeQswtg5czPe1Zh_OA0d6fEzVab">pdf</v-btn>
-      </v-parallax>
+      <v-layout column align-center justify-center>
+        <h1 class="mb-4 display-1 text-center">싸피일보</h1>
+        <div class="subheading mb-2 ">
+          기사 댓글 감정 분석 웹페이지
+        </div>
+        <div class="text-center">
+          기간 : 19.08.19 ~ 19.10.11
+          <br />
+          크롤링한 기사와 댓글을 분석하여 긍/부정을 알려줍니다.
+          <br />
+          댓글을 형태소로 나누어 logistic regression으로 분석합니다.
+          <br />
+          프론트엔드와 학습모델구현을 맡았습니다.
+        </div>
+        <div class="my-4">
+          <v-img
+            class="skill_logo"
+            src="../assets/python.png"
+            max-width="50"
+          ></v-img>
+          <v-img
+            class="skill_logo"
+            src="../assets/mysql.png"
+            max-width="50"
+          ></v-img>
+          <v-img
+            class="skill_logo"
+            src="../assets/vue.png"
+            max-width="50"
+          ></v-img>
+          <v-img
+            class="skill_logo"
+            src="../assets/tensorflow.png"
+            max-width="50"
+          ></v-img>
+          <v-img class="skill_logo" src="../assets/flask.png" max-width="50">
+          </v-img>
+        </div>
+      </v-layout>
+      <v-btn
+        href="https://drive.google.com/open?id=1ihzGmDeQswtg5czPe1Zh_OA0d6fEzVab"
+      >
+        pdf
+      </v-btn>
     </section>
 
     <section>
