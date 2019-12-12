@@ -1,16 +1,5 @@
 <template>
   <div>
-    <!-- title bar -->
-    <v-app-bar flat hide-on-scroll>
-      <v-toolbar-title>
-        dongkwon portfolio
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-item>
-        <v-btn text href="https://ydk7819.github.io">blog</v-btn>
-      </v-toolbar-item>
-    </v-app-bar>
-
     <section>
       <v-parallax src="../assets/main.jpg" height="600">
         <v-layout column align-center justify-center>
@@ -125,23 +114,86 @@
       </v-layout>
     </section>
 
-    <br />
     <section>
-      <v-layout row wrap>
+      <v-layout class="project_margin">
         <v-flex xs12 sm6>
-          <v-layout column align-center justify-center fill-height>
-            <h1 class="mb-4 display-1 text-center">사피일보</h1>
-            <div class="subheading mb-2 ">
-              기사 댓글 감정 분석 웹페이지
-            </div>
-            <div class="text-center">
+          <v-layout column justify-center fill-height>
+            <div>
+              <h1 class="mb-4 display-3">사피일보</h1>
+              <div class="headline mb-2">
+                기사 댓글 감정 분석 웹페이지
+              </div>
               기간 : 19.08.19 ~ 19.10.11
               <br />
-              크롤링한 기사와 댓글을 분석하여 긍/부정을 알려줍니다.
+              팀 소개, 게시글 등록 및 관리가 가능한 반응형 웹입니다.
               <br />
               댓글을 형태소로 나누어 logistic regression으로 분석합니다.
               <br />
               프론트엔드와 학습모델구현을 맡았습니다.
+
+              <!-- skill -->
+              <div class="my-4">
+                <v-img
+                  class="skill_logo"
+                  src="../assets/python.png"
+                  max-width="50"
+                ></v-img>
+                <v-img
+                  class="skill_logo"
+                  src="../assets/mysql.png"
+                  max-width="50"
+                ></v-img>
+                <v-img
+                  class="skill_logo"
+                  src="../assets/vue.png"
+                  max-width="50"
+                ></v-img>
+                <v-img
+                  class="skill_logo"
+                  src="../assets/tensorflow.png"
+                  max-width="50"
+                ></v-img>
+                <v-img
+                  class="skill_logo"
+                  src="../assets/flask.png"
+                  max-width="50"
+                >
+                </v-img>
+              </div>
+              <v-btn
+                href="https://drive.google.com/open?id=1ihzGmDeQswtg5czPe1Zh_OA0d6fEzVab"
+                color="yellow darken-2"
+              >
+                pdf
+              </v-btn>
+            </div>
+          </v-layout>
+        </v-flex>
+
+        <v-flex class="img_padding" xs12 sm6>
+          <v-layout align-center justify-center fill-height px-12>
+            <v-img src="../assets/ssafyilbo.png"></v-img>
+          </v-layout>
+        </v-flex>
+      </v-layout>
+    </section>
+
+    <section>
+      <v-layout class="project_margin">
+        <v-flex xs12 sm6>
+          <v-layout column align-center justify-center fill-height>
+            <h1 class="mb-4 display-1 text-center">KEEP GOING</h1>
+            <div class="subheading mb-2 ">
+              팀 포트폴리오 웹/앱
+            </div>
+            <div class="text-center">
+              기간 : 19.07.01 ~ 19.08.16
+              <br />
+              팀 소개, 게시글 등록 및 관리가 가능한 반응형 웹입니다.
+              <br />
+              로그인, gitlab, 날씨 등의 API를 활용하였습니다.
+              <br />
+              전반적인 프론트엔드와 관리기능을 구현하였습니다.
             </div>
             <div class="my-4">
               <v-img
@@ -161,82 +213,25 @@
               ></v-img>
               <v-img
                 class="skill_logo"
-                src="../assets/tensorflow.png"
-                max-width="50"
-              ></v-img>
-              <v-img
-                class="skill_logo"
                 src="../assets/flask.png"
                 max-width="50"
               >
               </v-img>
             </div>
             <v-btn
-              href="https://drive.google.com/open?id=1ihzGmDeQswtg5czPe1Zh_OA0d6fEzVab"
+              href="https://drive.google.com/file/d/1LcYJDvQiPs1ERVHdRKDoe3nmhBOPVD-D/view?usp=sharing"
               color="yellow darken-2"
+              >pdf</v-btn
             >
-              pdf
-            </v-btn>
           </v-layout>
         </v-flex>
 
         <v-flex xs12 sm6>
           <v-layout align-center justify-center fill-height px-12>
-            <v-img src="../assets/ssafyilbo.png"></v-img>
+            <v-img src="../assets/webmoblie.png"></v-img>
           </v-layout>
         </v-flex>
       </v-layout>
-    </section>
-
-    <section>
-      <v-container grid-list-xl>
-        <v-layout justify-center class="project_margin">
-          <v-layout xs12 md6 outbox>
-            <v-flex inbox>
-              <h1 class="mb-4 display-1">KEEP GOING</h1>
-              <div class="subheading mb-2 ">
-                팀 포트폴리오 웹/앱
-              </div>
-              <div>
-                기간 : 19.07.01 ~ 19.08.16
-                <br />
-                팀 소개, 게시글 등록 및 관리가 가능한 반응형 웹입니다.
-                <br />
-                로그인, gitlab, 날씨 등의 API를 활용하였습니다.
-                <br />
-                전반적인 프론트엔드와 관리기능을 구현하였습니다.
-              </div>
-              <div class="my-4">
-                <v-img
-                  class="skill_logo"
-                  src="../assets/python.png"
-                  max-width="50"
-                ></v-img>
-                <v-img
-                  class="skill_logo"
-                  src="../assets/mysql.png"
-                  max-width="50"
-                ></v-img>
-                <v-img
-                  class="skill_logo"
-                  src="../assets/vue.png"
-                  max-width="50"
-                ></v-img>
-                <v-img
-                  class="skill_logo"
-                  src="../assets/flask.png"
-                  max-width="50"
-                >
-                </v-img>
-              </div>
-            </v-flex>
-          </v-layout>
-          <v-btn
-            href="https://drive.google.com/file/d/1LcYJDvQiPs1ERVHdRKDoe3nmhBOPVD-D/view?usp=sharing"
-            >pdf</v-btn
-          >
-        </v-layout>
-      </v-container>
     </section>
 
     <section>
@@ -346,18 +341,16 @@ export default {
 };
 </script>
 <style>
+.img_padding {
+  padding-left: 50px;
+  padding-right: 50px;
+}
 .skill_logo {
   display: inline-block !important;
   margin-left: 10px;
 }
 .project_margin {
-  margin-top: 150px !important;
-  margin-bottom: 150px !important;
-}
-.outbox {
-  text-align: center;
-}
-.inbox {
-  display: inline-block;
+  margin-top: 200px !important;
+  margin-bottom: 200px !important;
 }
 </style>
