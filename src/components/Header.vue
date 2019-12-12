@@ -1,6 +1,6 @@
 <template>
   <!-- title bar -->
-  <v-app-bar flat hide-on-scroll>
+  <v-app-bar absolute elevate-on-scroll hide-on-scroll>
     <v-toolbar-title>
       dongkwon portfolio
     </v-toolbar-title>

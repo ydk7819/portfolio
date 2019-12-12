@@ -115,13 +115,18 @@
     </section>
 
     <section id="repository">
-      <h1 class="display-1 text-center">PROJECTS</h1>
-      <v-layout v-for="(item, i) in project" :key="i.id" row wrap>
-        <v-flex xs12 sm6 project_margin>
-          <v-layout column align-center justify-center fill-height>
+      <h1 id="project" class="display-1 text-center">PROJECTS</h1>
+      <v-layout
+        v-for="(item, i) in project"
+        :key="i.id"
+        row
+        wrap
+        project_margin
+      >
+        <v-flex xs12 sm6>
+          <v-layout column justify-center fill-height>
             <div>
               <h1 class="mb-4 display-2">{{ item.title }}</h1>
-              <hr />
               <div class="headline mb-2">
                 {{ item.subtitle }}
               </div>
@@ -149,9 +154,17 @@
         </v-flex>
 
         <v-flex xs12 sm6>
-          <v-layout align-center justify-center fill-height px-12>
+          <v-lazy
+            align-center
+            justify-end
+            fill-height
+            :options="{
+              threshold: 0.1
+            }"
+            transition="scroll-y-transition"
+          >
             <v-img :src="item.image"></v-img>
-          </v-layout>
+          </v-lazy>
         </v-flex>
       </v-layout>
     </section>
@@ -301,8 +314,12 @@ export default {
 };
 </script>
 <style>
+#project {
+  margin-top: 100px !important;
+  margin-bottom: -200px !important;
+}
 #repository {
-  width: 80%;
+  width: 70%;
   margin: auto;
 }
 .skill_logo {
@@ -310,7 +327,7 @@ export default {
   margin-left: 10px;
 }
 .project_margin {
-  margin-top: 200px !important;
-  margin-bottom: 200px !important;
+  margin-top: 300px !important;
+  margin-bottom: 300px !important;
 }
 </style>
