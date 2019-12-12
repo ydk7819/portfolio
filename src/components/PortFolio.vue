@@ -114,121 +114,43 @@
       </v-layout>
     </section>
 
-    <section>
-      <v-layout class="project_margin">
-        <v-flex xs12 sm6>
-          <v-layout column justify-center fill-height>
+    <section id="repository">
+      <h1 class="display-1 text-center">PROJECTS</h1>
+      <v-layout v-for="(item, i) in project" :key="i.id" row wrap>
+        <v-flex xs12 sm6 project_margin>
+          <v-layout column align-center justify-center fill-height>
             <div>
-              <h1 class="mb-4 display-3">사피일보</h1>
+              <h1 class="mb-4 display-2">{{ item.title }}</h1>
+              <hr />
               <div class="headline mb-2">
-                기사 댓글 감정 분석 웹페이지
+                {{ item.subtitle }}
               </div>
-              기간 : 19.08.19 ~ 19.10.11
+              {{ item.date }}
               <br />
-              팀 소개, 게시글 등록 및 관리가 가능한 반응형 웹입니다.
-              <br />
-              댓글을 형태소로 나누어 logistic regression으로 분석합니다.
-              <br />
-              프론트엔드와 학습모델구현을 맡았습니다.
+              {{ item.role }}
+              <div v-html="item.descript"></div>
 
               <!-- skill -->
               <div class="my-4">
                 <v-img
+                  v-for="(skill, j) in item.skills"
+                  :key="j.id"
+                  :src="skill.src"
                   class="skill_logo"
-                  src="../assets/python.png"
                   max-width="50"
                 ></v-img>
-                <v-img
-                  class="skill_logo"
-                  src="../assets/mysql.png"
-                  max-width="50"
-                ></v-img>
-                <v-img
-                  class="skill_logo"
-                  src="../assets/vue.png"
-                  max-width="50"
-                ></v-img>
-                <v-img
-                  class="skill_logo"
-                  src="../assets/tensorflow.png"
-                  max-width="50"
-                ></v-img>
-                <v-img
-                  class="skill_logo"
-                  src="../assets/flask.png"
-                  max-width="50"
-                >
-                </v-img>
               </div>
-              <v-btn
-                href="https://drive.google.com/open?id=1ihzGmDeQswtg5czPe1Zh_OA0d6fEzVab"
-                color="yellow darken-2"
-              >
+              <v-btn :href="item.pdf" color="yellow darken-2">
                 pdf
               </v-btn>
+              <v-btn v-if="item.link != null" :href="item.link">page</v-btn>
             </div>
-          </v-layout>
-        </v-flex>
-
-        <v-flex class="img_padding" xs12 sm6>
-          <v-layout align-center justify-center fill-height px-12>
-            <v-img src="../assets/ssafyilbo.png"></v-img>
-          </v-layout>
-        </v-flex>
-      </v-layout>
-    </section>
-
-    <section>
-      <v-layout class="project_margin">
-        <v-flex xs12 sm6>
-          <v-layout column align-center justify-center fill-height>
-            <h1 class="mb-4 display-1 text-center">KEEP GOING</h1>
-            <div class="subheading mb-2 ">
-              팀 포트폴리오 웹/앱
-            </div>
-            <div class="text-center">
-              기간 : 19.07.01 ~ 19.08.16
-              <br />
-              팀 소개, 게시글 등록 및 관리가 가능한 반응형 웹입니다.
-              <br />
-              로그인, gitlab, 날씨 등의 API를 활용하였습니다.
-              <br />
-              전반적인 프론트엔드와 관리기능을 구현하였습니다.
-            </div>
-            <div class="my-4">
-              <v-img
-                class="skill_logo"
-                src="../assets/python.png"
-                max-width="50"
-              ></v-img>
-              <v-img
-                class="skill_logo"
-                src="../assets/mysql.png"
-                max-width="50"
-              ></v-img>
-              <v-img
-                class="skill_logo"
-                src="../assets/vue.png"
-                max-width="50"
-              ></v-img>
-              <v-img
-                class="skill_logo"
-                src="../assets/flask.png"
-                max-width="50"
-              >
-              </v-img>
-            </div>
-            <v-btn
-              href="https://drive.google.com/file/d/1LcYJDvQiPs1ERVHdRKDoe3nmhBOPVD-D/view?usp=sharing"
-              color="yellow darken-2"
-              >pdf</v-btn
-            >
           </v-layout>
         </v-flex>
 
         <v-flex xs12 sm6>
           <v-layout align-center justify-center fill-height px-12>
-            <v-img src="../assets/webmoblie.png"></v-img>
+            <v-img :src="item.image"></v-img>
           </v-layout>
         </v-flex>
       </v-layout>
@@ -335,15 +257,53 @@ export default {
           name: "flask",
           value: 40
         }
+      ],
+      project: [
+        {
+          title: "사피일보",
+          subtitle: "기사 댓글 감정 분석 웹페이지",
+          date: "19.08.19 ~ 19.10.11",
+          role: "front-end / 학습모델구현",
+          descript:
+            "크롤링한 기사와 댓글을 분석하여 긍/부정을 알려줍니다. <br /> 댓글을 형태소로 나누어 logistic regression으로 분석합니다.",
+          skills: [
+            { name: "python", src: require("../assets/python.png") },
+            { name: "mysql", src: require("../assets/mysql.png") },
+            { name: "vue", src: require("../assets/vue.png") },
+            { name: "tensorflow", src: require("../assets/tensorflow.png") },
+            { name: "flask", src: require("../assets/flask.png") }
+          ],
+          image: require("../assets/ssafyilbo.png"),
+          pdf:
+            "https://drive.google.com/file/d/1LcYJDvQiPs1ERVHdRKDoe3nmhBOPVD-D/view?usp=sharing",
+          link: "http://13.125.116.42/"
+        },
+        {
+          title: "10TRILLION",
+          subtitle: "팀 포트폴리오 웹/앱",
+          date: "19.07.01 ~ 19.08.16",
+          role: "front-end / 관리자 / DB설계",
+          descript:
+            "팀 소개, 게시글 등록 및 관리가 가능한 반응형 웹입니다. <br /> 로그인, gitlab, 날씨 등의 API를 활용하였습니다.",
+          skills: [
+            { name: "python", src: require("../assets/python.png") },
+            { name: "mysql", src: require("../assets/mysql.png") },
+            { name: "vue", src: require("../assets/vue.png") },
+            { name: "flask", src: require("../assets/flask.png") }
+          ],
+          image: require("../assets/webmoblie.png"),
+          pdf:
+            "https://drive.google.com/file/d/1LcYJDvQiPs1ERVHdRKDoe3nmhBOPVD-D/view?usp=sharing"
+        }
       ]
     };
   }
 };
 </script>
 <style>
-.img_padding {
-  padding-left: 50px;
-  padding-right: 50px;
+#repository {
+  width: 80%;
+  margin: auto;
 }
 .skill_logo {
   display: inline-block !important;
