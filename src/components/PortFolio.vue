@@ -182,7 +182,7 @@
 
         <v-flex xs12 sm6>
           <v-layout align-center justify-center fill-height px-12>
-            <v-img src="../assets/ilbo.png"></v-img>
+            <v-img src="../assets/ssafyilbo.png"></v-img>
           </v-layout>
         </v-flex>
       </v-layout>
