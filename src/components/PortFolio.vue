@@ -17,6 +17,7 @@
       </v-parallax>
     </section>
 
+    <!-- skills -->
     <section>
       <v-layout column wrap class="my-12" align-center>
         <v-flex xs12 sm4 class="my-4">
@@ -114,6 +115,7 @@
       </v-layout>
     </section>
 
+    <!-- projects -->
     <section id="repository">
       <h1 id="project" class="display-1 text-center">PROJECTS</h1>
       <v-layout
@@ -123,19 +125,22 @@
         wrap
         project_margin
       >
-        <v-flex xs12 sm6>
+        <v-flex xs12 sm6 my-2>
           <v-layout column justify-center fill-height>
             <div>
-              <h1 class="mb-4 display-2">{{ item.title }}</h1>
-              <div class="headline mb-2">
+              <h1 class="display-2 font-weight-bold font_title">
+                {{ item.title }}
+              </h1>
+              <div class="headline mb-2 font_gray">
                 {{ item.subtitle }}
               </div>
+              <hr class="project_line mb-2" :style="item.styleObject" />
               {{ item.date }}
               <br />
               {{ item.role }}
               <div v-html="item.descript"></div>
 
-              <!-- skill -->
+              <!-- project_skill -->
               <div class="my-4">
                 <v-img
                   v-for="(skill, j) in item.skills"
@@ -145,22 +150,38 @@
                   max-width="50"
                 ></v-img>
               </div>
-              <v-btn :href="item.pdf" color="yellow darken-2">
+              <v-btn text small :href="item.pdf" :style="item.buttonStyle">
                 pdf
               </v-btn>
-              <v-btn v-if="item.link != null" :href="item.link">page</v-btn>
+              <v-btn
+                text
+                small
+                v-if="item.link != null"
+                :href="item.link"
+                class="project_page_button mx-2"
+              >
+                page
+              </v-btn>
             </div>
           </v-layout>
         </v-flex>
 
-        <v-flex xs12 sm6>
-          <v-layout align-center justify-end fill-height data-aos="fade-right" data-aos-anchor-placement="top-center">
+        <!-- project_image -->
+        <v-flex xs12 sm6 my-2>
+          <v-layout
+            align-center
+            justify-end
+            fill-height
+            data-aos="fade-right"
+            data-aos-anchor-placement="top-center"
+          >
             <v-img :src="item.image"></v-img>
           </v-layout>
         </v-flex>
       </v-layout>
     </section>
 
+    <!-- contact -->
     <section>
       <v-container grid-list-xl>
         <v-layout row wrap justify-center class="my-12">
@@ -281,7 +302,14 @@ export default {
           image: require("../assets/ssafyilbo.png"),
           pdf:
             "https://drive.google.com/file/d/1LcYJDvQiPs1ERVHdRKDoe3nmhBOPVD-D/view?usp=sharing",
-          link: "http://13.125.116.42/"
+          link: "http://13.125.116.42/",
+          styleObject: {
+            width: "100px",
+            border: "1px solid #09A5FE"
+          },
+          buttonStyle: {
+            background: "#09A5FE"
+          }
         },
         {
           title: "10TRILLION",
@@ -298,7 +326,14 @@ export default {
           ],
           image: require("../assets/webmoblie.png"),
           pdf:
-            "https://drive.google.com/file/d/1LcYJDvQiPs1ERVHdRKDoe3nmhBOPVD-D/view?usp=sharing"
+            "https://drive.google.com/file/d/1LcYJDvQiPs1ERVHdRKDoe3nmhBOPVD-D/view?usp=sharing",
+          styleObject: {
+            width: "100px",
+            border: "1px solid #05D1B9"
+          },
+          buttonStyle: {
+            background: "#05D1B9"
+          }
         }
       ]
     };
@@ -321,5 +356,18 @@ export default {
 .project_margin {
   margin-top: 300px !important;
   margin-bottom: 300px !important;
+}
+.font_gray {
+  color: #585858;
+}
+.font_title {
+  color: #424242;
+}
+.project_line {
+  width: 100px;
+  border: 1px solid;
+}
+.project_page_button {
+  background-color: #c7cacc !important;
 }
 </style>
