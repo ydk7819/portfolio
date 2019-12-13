@@ -20,97 +20,28 @@
     <!-- skills -->
     <section>
       <v-layout column wrap class="my-12" align-center>
-        <v-flex xs12 sm4 class="my-4">
-          <div class="text-center">
-            <h2 class="headline">Skills</h2>
+        <v-flex class="my-4">
+          <div>
+            <h1 class="display-1 text-center my-5">
+              SKILLS
+            </h1>
+            <div class="row wrap justify-center">
+              <hr class="title_line" />
+            </div>
           </div>
         </v-flex>
-        <v-flex xs12>
-          <v-container grid-list-xl>
-            <v-layout row wrap align-center>
-              <v-flex xs12>
-                <v-card flat class="transparent">
-                  <v-card-text>
-                    <v-layout
-                      v-for="(item, i) in language"
-                      :key="i"
-                      row
-                      wrap
-                      align-center
-                    >
-                      <v-flex xs12 md4 align-center>
-                        <div class="layout justify-center">
-                          {{ item.name }}
-                        </div>
-                      </v-flex>
-                      <v-flex xs12 md8>
-                        <v-progress-linear
-                          rounded
-                          height="8"
-                          :value="item.value"
-                          color="yellow darken-2"
-                        ></v-progress-linear>
-                      </v-flex>
-                    </v-layout>
-                  </v-card-text>
-                </v-card>
-              </v-flex>
-              <v-flex xs12>
-                <v-card flat class="transparent">
-                  <v-card-text>
-                    <v-layout
-                      v-for="(item, i) in web"
-                      :key="i"
-                      row
-                      wrap
-                      align-center
-                    >
-                      <v-flex xs12 md4 align-center>
-                        <div class="layout justify-center">
-                          {{ item.name }}
-                        </div>
-                      </v-flex>
-                      <v-flex xs12 md8>
-                        <v-progress-linear
-                          rounded
-                          height="8"
-                          :value="item.value"
-                          color="cyan"
-                        ></v-progress-linear>
-                      </v-flex>
-                    </v-layout>
-                  </v-card-text>
-                </v-card>
-              </v-flex>
-              <v-flex xs12>
-                <v-card flat class="transparent">
-                  <v-card-text>
-                    <v-layout
-                      v-for="(item, i) in frame"
-                      :key="i"
-                      row
-                      wrap
-                      align-center
-                    >
-                      <v-flex xs12 md4 align-center>
-                        <div class="layout justify-center">
-                          {{ item.name }}
-                        </div>
-                      </v-flex>
-                      <v-flex xs12 md8>
-                        <v-progress-linear
-                          rounded
-                          height="8"
-                          :value="item.value"
-                          color="deep-purple accent-4"
-                        ></v-progress-linear>
-                      </v-flex>
-                    </v-layout>
-                  </v-card-text>
-                </v-card>
-              </v-flex>
-            </v-layout>
-          </v-container>
+        <v-flex my-12 content_width row wrap justify-center>
+          <v-flex xs12 sm4 px-4 v-for="(item, i) in skill" :key="i.id">
+            <div class="my-4" v-for="(skill, j) in item.language" :key="j.id">
+              <div class="my-2">{{ skill.name }}</div>
+              <v-progress-linear
+                :value="skill.value"
+                :color="item.skill_color"
+                height="10"
+                rounded
+              ></v-progress-linear>
+            </div>
+          </v-flex>
         </v-flex>
       </v-layout>
     </section>
@@ -195,9 +126,15 @@
         <v-layout row wrap justify-center class="my-12">
           <v-flex xs12 sm3>
             <v-card flat class="transparent">
-              <v-card-title primary-title class="justify-center">
-                <h1 class="display-1 headline">Contact me</h1>
-              </v-card-title>
+              <div>
+                <h1 class="display-1 text-center my-5">
+                  CONTECT
+                </h1>
+                <div class="row wrap justify-center">
+                  <hr class="title_line" />
+                </div>
+              </div>
+              <br />
               <v-list class="transparent">
                 <v-list-item>
                   <v-list-item-action>
@@ -246,50 +183,29 @@
 export default {
   data() {
     return {
-      language: [
+      skill: [
         {
-          name: "java",
-          value: 75
+          language: [
+            { name: "java", value: 75 },
+            { name: "python", value: 50 },
+            { name: "mysql", value: 60 }
+          ],
+          skill_color: "#09A5FE"
         },
         {
-          name: "python",
-          value: 50
+          language: [
+            { name: "HTML", value: 70 },
+            { name: "JQuery", value: 40 },
+            { name: "Vue", value: 60 }
+          ],
+          skill_color: "#FACC2E"
         },
         {
-          name: "kotlin",
-          value: 25
-        },
-        {
-          name: "mysql",
-          value: 60
-        }
-      ],
-      web: [
-        {
-          name: "HTML",
-          value: 70
-        },
-        {
-          name: "JS",
-          value: 50
-        },
-        {
-          name: "JQuery",
-          value: 40
-        },
-        {
-          name: "Vue",
-          value: 50
-        }
-      ],
-      frame: [
-        {
-          name: "Spring",
-          value: 50
-        },
-        {
-          name: "flask",
-          value: 40
+          language: [
+            { name: "SpringBoot", value: 40 },
+            { name: "flask", value: 40 }
+          ],
+          skill_color: "#05D1B9"
         }
       ],
       project: [
@@ -357,6 +273,9 @@ export default {
   width: 70%;
   margin: auto;
 }
+.content_width {
+  width: 70%;
+}
 .skill_logo {
   display: inline-block !important;
   margin-left: 10px;
@@ -380,6 +299,6 @@ export default {
 }
 .title_line {
   width: 70px;
-  border: 0.7px solid gray;
+  border: 0.5px solid gray;
 }
 </style>
