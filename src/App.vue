@@ -8,6 +8,7 @@
 <script>
 import PortFolio from "./components/PortFolio";
 import Header from "./components/Header";
+import AOS from "aos";
 
 export default {
   name: "App",
@@ -17,6 +18,9 @@ export default {
   },
   data: () => ({
     //
-  })
+  }),
+  created() {
+    AOS.init();
+  }
 };
 </script>

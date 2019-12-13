@@ -154,17 +154,9 @@
         </v-flex>
 
         <v-flex xs12 sm6>
-          <v-lazy
-            align-center
-            justify-end
-            fill-height
-            :options="{
-              threshold: 0.1
-            }"
-            transition="scroll-y-transition"
-          >
+          <v-layout align-center justify-end fill-height data-aos="fade-right" data-aos-anchor-placement="top-center">
             <v-img :src="item.image"></v-img>
-          </v-lazy>
+          </v-layout>
         </v-flex>
       </v-layout>
     </section>

@@ -9,6 +9,7 @@
     "deploy": "git subtree push — prefix dist heroku master"
   },
   "dependencies": {
+    "aos": "^3.0.0-beta.6",
     "core-js": "^3.3.2",
     "vue": "^2.6.10",
     "vuetify": "^2.1.0"
