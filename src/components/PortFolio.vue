@@ -117,7 +117,15 @@
 
     <!-- projects -->
     <section id="repository">
-      <h1 id="project" class="display-1 text-center">PROJECTS</h1>
+      <div id="project">
+        <h1 class="display-1 text-center my-5">
+          PROJECTS
+        </h1>
+        <div class="row wrap justify-center">
+          <hr class="title_line" />
+        </div>
+      </div>
+
       <v-layout
         v-for="(item, i) in project"
         :key="i.id"
@@ -131,7 +139,7 @@
               <h1 class="display-2 font-weight-bold font_title">
                 {{ item.title }}
               </h1>
-              <div class="headline mb-2 font_gray">
+              <div class="title mb-2 font_gray font-weight-thin">
                 {{ item.subtitle }}
               </div>
               <hr class="project_line mb-2" :style="item.styleObject" />
@@ -369,5 +377,9 @@ export default {
 }
 .project_page_button {
   background-color: #c7cacc !important;
+}
+.title_line {
+  width: 70px;
+  border: 0.7px solid gray;
 }
 </style>
