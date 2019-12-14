@@ -21,15 +21,31 @@
     <section>
       <v-layout column wrap class="my-12" align-center>
         <v-flex class="my-4">
-          <div>
-            <h1 class="display-1 text-center my-5">
-              SKILLS
-            </h1>
-            <div class="row wrap justify-center">
-              <hr class="title_line" />
-            </div>
+          <h1 class="display-1 text-center my-5">
+            ABOUT
+          </h1>
+          <div class="row wrap justify-center">
+            <hr class="title_line" />
           </div>
         </v-flex>
+
+        <v-flex v-for="(item, i) in about" :key="i.id" content_width>
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.birth }}</p>
+          <h4>education</h4>
+
+          <div v-for="(edu, j) in item.education" :key="j.id">
+            {{ edu.date }}
+            {{ edu.desc }}
+          </div>
+
+          <h4>awards</h4>
+          <div v-for="(award, j) in item.award" :key="j.id">
+            {{ award.date }}
+            {{ award.desc }}
+          </div>
+        </v-flex>
+
         <v-flex my-12 content_width row wrap justify-center>
           <v-flex xs12 sm4 px-4 v-for="(item, i) in skill" :key="i.id">
             <div class="my-4" v-for="(skill, j) in item.language" :key="j.id">
@@ -47,77 +63,79 @@
     </section>
 
     <!-- projects -->
-    <section id="repository">
-      <div id="project">
-        <h1 class="display-1 text-center my-5">
-          PROJECTS
-        </h1>
-        <div class="row wrap justify-center">
-          <hr class="title_line" />
+    <section class="background_color">
+      <div id="repository">
+        <div id="project_title">
+          <h1 class="display-1 text-center my-5">
+            PROJECTS
+          </h1>
+          <div class="row wrap justify-center">
+            <hr class="title_line" />
+          </div>
         </div>
+
+        <v-layout
+          v-for="(item, i) in project"
+          :key="i.id"
+          row
+          wrap
+          project_margin
+        >
+          <v-flex xs12 sm6 my-2>
+            <v-layout column justify-center fill-height>
+              <div>
+                <h1 class="display-2 font-weight-bold font_title">
+                  {{ item.title }}
+                </h1>
+                <div class="title mb-2 font_gray font-weight-thin">
+                  {{ item.subtitle }}
+                </div>
+                <hr class="project_line mb-2" :style="item.styleObject" />
+                {{ item.date }}
+                <br />
+                {{ item.role }}
+                <div v-html="item.descript"></div>
+
+                <!-- project_skill -->
+                <div class="my-4">
+                  <v-img
+                    v-for="(skill, j) in item.skills"
+                    :key="j.id"
+                    :src="skill.src"
+                    class="skill_logo"
+                    max-width="50"
+                  ></v-img>
+                </div>
+                <v-btn text small :href="item.pdf" :style="item.buttonStyle">
+                  pdf
+                </v-btn>
+                <v-btn
+                  text
+                  small
+                  v-if="item.link != null"
+                  :href="item.link"
+                  class="project_page_button mx-2"
+                >
+                  page
+                </v-btn>
+              </div>
+            </v-layout>
+          </v-flex>
+
+          <!-- project_image -->
+          <v-flex xs12 sm6 my-2>
+            <v-layout
+              align-center
+              justify-end
+              fill-height
+              data-aos="fade-right"
+              data-aos-anchor-placement="top-center"
+            >
+              <v-img :src="item.image"></v-img>
+            </v-layout>
+          </v-flex>
+        </v-layout>
       </div>
-
-      <v-layout
-        v-for="(item, i) in project"
-        :key="i.id"
-        row
-        wrap
-        project_margin
-      >
-        <v-flex xs12 sm6 my-2>
-          <v-layout column justify-center fill-height>
-            <div>
-              <h1 class="display-2 font-weight-bold font_title">
-                {{ item.title }}
-              </h1>
-              <div class="title mb-2 font_gray font-weight-thin">
-                {{ item.subtitle }}
-              </div>
-              <hr class="project_line mb-2" :style="item.styleObject" />
-              {{ item.date }}
-              <br />
-              {{ item.role }}
-              <div v-html="item.descript"></div>
-
-              <!-- project_skill -->
-              <div class="my-4">
-                <v-img
-                  v-for="(skill, j) in item.skills"
-                  :key="j.id"
-                  :src="skill.src"
-                  class="skill_logo"
-                  max-width="50"
-                ></v-img>
-              </div>
-              <v-btn text small :href="item.pdf" :style="item.buttonStyle">
-                pdf
-              </v-btn>
-              <v-btn
-                text
-                small
-                v-if="item.link != null"
-                :href="item.link"
-                class="project_page_button mx-2"
-              >
-                page
-              </v-btn>
-            </div>
-          </v-layout>
-        </v-flex>
-
-        <!-- project_image -->
-        <v-flex xs12 sm6 my-2>
-          <v-layout
-            align-center
-            justify-end
-            fill-height
-            data-aos="fade-right"
-            data-aos-anchor-placement="top-center"
-          >
-            <v-img :src="item.image"></v-img>
-          </v-layout>
-        </v-flex>
-      </v-layout>
     </section>
 
     <!-- contact -->
@@ -183,6 +201,22 @@
 export default {
   data() {
     return {
+      about: [
+        {
+          name: "양동권",
+          birth: "93.02.08",
+          education: [
+            { date: "2012.03 ~ 2018.02", desc: "전남대학교 소프트웨어공학" },
+            { date: "2017.06 ~ 2017.09", desc: "빅데이터 청년인재 - 빅데이터 엔지니어 양성" },
+            { date: "2018.12 ~ 2019.12", desc: "삼성 청년 SW 아카데미" }
+          ],
+          award: [
+            { date: "2019.05.17", desc: "SSAFY 1학기 성적우수상 광주3반 2등" },
+            { date: "2019.08.16", desc: "SSAFY 웹/모바일 프로젝트 광주 2등" },
+            { date: "2019.10.11", desc: "SSAFY 인공지능 특화 프로젝트 광주 1등"}
+          ]
+        }
+      ],
       skill: [
         {
           language: [
@@ -265,13 +299,16 @@ export default {
 };
 </script>
 <style>
-#project {
+#project_title {
   margin-top: 100px !important;
   margin-bottom: -200px !important;
 }
 #repository {
   width: 70%;
   margin: auto;
+}
+.background_color {
+  background-color: #F2F2F2;
 }
 .content_width {
   width: 70%;
