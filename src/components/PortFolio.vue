@@ -18,7 +18,7 @@
     </section>
 
     <!-- about -->
-    <section>
+    <section class="section_margin">
       <v-flex class="my-4">
         <h1 class="display-1 text-center my-5">
           ABOUT
@@ -72,9 +72,9 @@
     </section>
 
     <!-- projects -->
-    <section class="background_color">
+    <section class="background_color section_margin">
       <div id="repository">
-        <div id="project_title">
+        <div class="my-4">
           <h1 class="display-1 text-center my-5">
             PROJECTS
           </h1>
@@ -83,13 +83,7 @@
           </div>
         </div>
 
-        <v-layout
-          v-for="(item, i) in project"
-          :key="i.id"
-          row
-          wrap
-          project_margin
-        >
+        <v-layout v-for="(item, i) in project" :key="i.id" row wrap project_padding>
           <v-flex xs12 sm6 my-2>
             <v-layout column justify-center fill-height>
               <div>
@@ -148,60 +142,58 @@
     </section>
 
     <!-- contact -->
-    <section>
-      <v-container grid-list-xl>
-        <v-layout row wrap justify-center class="my-12">
-          <v-flex xs12 sm3>
-            <v-card flat class="transparent">
-              <div>
-                <h1 class="display-1 text-center my-5">
-                  CONTECT
-                </h1>
-                <div class="row wrap justify-center">
-                  <hr class="title_line" />
-                </div>
+    <section class="section_margin">
+      <v-layout row wrap justify-center>
+        <v-flex xs12 sm3>
+          <v-card flat class="transparent">
+            <div>
+              <h1 class="display-1 text-center my-5">
+                CONTECT
+              </h1>
+              <div class="row wrap justify-center">
+                <hr class="title_line" />
               </div>
-              <br />
-              <v-list class="transparent">
-                <v-list-item>
-                  <v-list-item-action>
-                    <v-icon class="blue--text text--lighten-2">
-                      mdi-github-circle
-                    </v-icon>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title
-                      ><a href="https://www.github.com/ydk7819"
-                        >www.github.com/ydk7819</a
-                      ></v-list-item-title
-                    >
-                  </v-list-item-content>
-                </v-list-item>
-                <v-list-item>
-                  <v-list-item-action>
-                    <v-icon class="blue--text text--lighten-2">
-                      mdi-map-marker
-                    </v-icon>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title>Gwangju, KR</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-                <v-list-item>
-                  <v-list-item-action>
-                    <v-icon class="blue--text text--lighten-2">
-                      mdi-email
-                    </v-icon>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title>ydk9557819@naver.com</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
+            </div>
+            <br />
+            <v-list class="transparent">
+              <v-list-item>
+                <v-list-item-action>
+                  <v-icon class="blue--text text--lighten-2">
+                    mdi-github-circle
+                  </v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title
+                    ><a href="https://www.github.com/ydk7819"
+                      >www.github.com/ydk7819</a
+                    ></v-list-item-title
+                  >
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-action>
+                  <v-icon class="blue--text text--lighten-2">
+                    mdi-map-marker
+                  </v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>Gwangju, KR</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-action>
+                  <v-icon class="blue--text text--lighten-2">
+                    mdi-email
+                  </v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>ydk9557819@naver.com</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-card>
+        </v-flex>
+      </v-layout>
     </section>
   </div>
 </template>
@@ -308,16 +300,22 @@ export default {
 };
 </script>
 <style>
-#project_title {
-  margin-top: 100px !important;
-  margin-bottom: -200px !important;
-}
 #repository {
   width: 70%;
   margin: auto;
 }
+.project_padding {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.section_margin {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
 .background_color {
-  background-color: #F2F2F2;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #f2f2f2;
 }
 .content_width {
   width: 70%;
@@ -325,10 +323,6 @@ export default {
 .skill_logo {
   display: inline-block !important;
   margin-left: 10px;
-}
-.project_margin {
-  margin-top: 300px !important;
-  margin-bottom: 300px !important;
 }
 .font_gray {
   color: #585858;
