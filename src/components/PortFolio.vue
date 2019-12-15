@@ -23,12 +23,12 @@
         <h1 class="display-1 text-center my-5">
           ABOUT
         </h1>
-        <div class="row wrap justify-center">
+        <v-layout row wrap justify-center>
           <hr class="title_line" />
-        </div>
+        </v-layout>
       </v-flex>
-      <v-layout row align-center justify-center content_width margin_auto>
-        <v-flex sm8 v-for="(item, i) in about" :key="i.id">
+      <v-layout row wrap align-center justify-center content_width margin_auto>
+        <v-flex sm8 xs12 v-for="(item, i) in about" :key="i.id">
           <h3>{{ item.name }}</h3>
           <p>{{ item.birth }}</p>
 
@@ -46,7 +46,7 @@
         </v-flex>
 
         <!-- skills -->
-        <v-flex sm4 my-12 row wrap justify-center>
+        <v-layout sm4 xs12 my-12 row wrap justify-center>
           <v-flex xs4 v-for="(item, i) in skill" :key="i.id">
             <v-layout
               align-center
@@ -67,7 +67,7 @@
               </v-progress-circular>
             </v-layout>
           </v-flex>
-        </v-flex>
+        </v-layout>
       </v-layout>
     </section>
 
@@ -78,12 +78,18 @@
           <h1 class="display-1 text-center my-5">
             PROJECTS
           </h1>
-          <div class="row wrap justify-center">
+          <v-layout row wrap justify-center>
             <hr class="title_line" />
-          </div>
+          </v-layout>
         </div>
 
-        <v-layout v-for="(item, i) in project" :key="i.id" row wrap project_padding>
+        <v-layout
+          v-for="(item, i) in project"
+          :key="i.id"
+          row
+          wrap
+          project_padding
+        >
           <v-flex xs12 sm6 my-2>
             <v-layout column justify-center fill-height>
               <div>
@@ -150,9 +156,9 @@
               <h1 class="display-1 text-center my-5">
                 CONTECT
               </h1>
-              <div class="row wrap justify-center">
+              <v-layout row wrap justify-center>
                 <hr class="title_line" />
-              </div>
+              </v-layout>
             </div>
             <br />
             <v-list class="transparent">
@@ -299,6 +305,7 @@ export default {
   }
 };
 </script>
+
 <style>
 #repository {
   width: 70%;
