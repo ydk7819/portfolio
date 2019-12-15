@@ -17,55 +17,64 @@
       </v-parallax>
     </section>
 
-    <!-- skills -->
-    <section>
-      <v-layout column wrap class="my-12" align-center>
-        <v-flex class="my-4">
-          <h1 class="display-1 text-center my-5">
-            ABOUT
-          </h1>
-          <div class="row wrap justify-center">
-            <hr class="title_line" />
-          </div>
-        </v-flex>
-
-        <v-flex v-for="(item, i) in about" :key="i.id" content_width>
+    <!-- about -->
+    <section class="section_margin">
+      <v-flex class="my-4">
+        <h1 class="display-1 text-center my-5">
+          ABOUT
+        </h1>
+        <div class="row wrap justify-center">
+          <hr class="title_line" />
+        </div>
+      </v-flex>
+      <v-layout row align-center justify-center content_width margin_auto>
+        <v-flex sm8 v-for="(item, i) in about" :key="i.id">
           <h3>{{ item.name }}</h3>
           <p>{{ item.birth }}</p>
-          <h4>education</h4>
 
+          <h3 class="font_gray">education</h3>
           <div v-for="(edu, j) in item.education" :key="j.id">
             {{ edu.date }}
             {{ edu.desc }}
           </div>
-
-          <h4>awards</h4>
+          <br />
+          <h3 class="font_gray">awards</h3>
           <div v-for="(award, j) in item.award" :key="j.id">
             {{ award.date }}
             {{ award.desc }}
           </div>
         </v-flex>
 
-        <v-flex my-12 content_width row wrap justify-center>
-          <v-flex xs12 sm4 px-4 v-for="(item, i) in skill" :key="i.id">
-            <div class="my-4" v-for="(skill, j) in item.language" :key="j.id">
+        <!-- skills -->
+        <v-flex sm4 my-12 row wrap justify-center>
+          <v-flex xs4 v-for="(item, i) in skill" :key="i.id">
+            <v-layout
+              align-center
+              justify-center
+              column
+              v-for="(skill, j) in item.language"
+              :key="j.id"
+            >
               <div class="my-2">{{ skill.name }}</div>
-              <v-progress-linear
+              <v-progress-circular
                 :value="skill.value"
                 :color="item.skill_color"
-                height="10"
-                rounded
-              ></v-progress-linear>
-            </div>
+                :size="50"
+                :rotate="-90"
+                :width="10"
+              >
+                {{ skill.value }}
+              </v-progress-circular>
+            </v-layout>
           </v-flex>
         </v-flex>
       </v-layout>
     </section>
 
     <!-- projects -->
-    <section class="background_color">
+    <section class="background_color section_margin">
       <div id="repository">
-        <div id="project_title">
+        <div class="my-4">
           <h1 class="display-1 text-center my-5">
             PROJECTS
           </h1>
@@ -74,13 +83,7 @@
           </div>
         </div>
 
-        <v-layout
-          v-for="(item, i) in project"
-          :key="i.id"
-          row
-          wrap
-          project_margin
-        >
+        <v-layout v-for="(item, i) in project" :key="i.id" row wrap project_padding>
           <v-flex xs12 sm6 my-2>
             <v-layout column justify-center fill-height>
               <div>
@@ -139,60 +142,58 @@
     </section>
 
     <!-- contact -->
-    <section>
-      <v-container grid-list-xl>
-        <v-layout row wrap justify-center class="my-12">
-          <v-flex xs12 sm3>
-            <v-card flat class="transparent">
-              <div>
-                <h1 class="display-1 text-center my-5">
-                  CONTECT
-                </h1>
-                <div class="row wrap justify-center">
-                  <hr class="title_line" />
-                </div>
+    <section class="section_margin">
+      <v-layout row wrap justify-center>
+        <v-flex xs12 sm3>
+          <v-card flat class="transparent">
+            <div>
+              <h1 class="display-1 text-center my-5">
+                CONTECT
+              </h1>
+              <div class="row wrap justify-center">
+                <hr class="title_line" />
               </div>
-              <br />
-              <v-list class="transparent">
-                <v-list-item>
-                  <v-list-item-action>
-                    <v-icon class="blue--text text--lighten-2">
-                      mdi-github-circle
-                    </v-icon>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title
-                      ><a href="https://www.github.com/ydk7819"
-                        >www.github.com/ydk7819</a
-                      ></v-list-item-title
-                    >
-                  </v-list-item-content>
-                </v-list-item>
-                <v-list-item>
-                  <v-list-item-action>
-                    <v-icon class="blue--text text--lighten-2">
-                      mdi-map-marker
-                    </v-icon>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title>Gwangju, KR</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-                <v-list-item>
-                  <v-list-item-action>
-                    <v-icon class="blue--text text--lighten-2">
-                      mdi-email
-                    </v-icon>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title>ydk9557819@naver.com</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
+            </div>
+            <br />
+            <v-list class="transparent">
+              <v-list-item>
+                <v-list-item-action>
+                  <v-icon class="blue--text text--lighten-2">
+                    mdi-github-circle
+                  </v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title
+                    ><a href="https://www.github.com/ydk7819"
+                      >www.github.com/ydk7819</a
+                    ></v-list-item-title
+                  >
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-action>
+                  <v-icon class="blue--text text--lighten-2">
+                    mdi-map-marker
+                  </v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>Gwangju, KR</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-action>
+                  <v-icon class="blue--text text--lighten-2">
+                    mdi-email
+                  </v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>ydk9557819@naver.com</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-card>
+        </v-flex>
+      </v-layout>
     </section>
   </div>
 </template>
@@ -299,16 +300,22 @@ export default {
 };
 </script>
 <style>
-#project_title {
-  margin-top: 100px !important;
-  margin-bottom: -200px !important;
-}
 #repository {
   width: 70%;
   margin: auto;
 }
+.project_padding {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.section_margin {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
 .background_color {
-  background-color: #F2F2F2;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #f2f2f2;
 }
 .content_width {
   width: 70%;
@@ -316,10 +323,6 @@ export default {
 .skill_logo {
   display: inline-block !important;
   margin-left: 10px;
-}
-.project_margin {
-  margin-top: 300px !important;
-  margin-bottom: 300px !important;
 }
 .font_gray {
   color: #585858;
@@ -337,5 +340,8 @@ export default {
 .title_line {
   width: 70px;
   border: 0.5px solid gray;
+}
+.margin_auto {
+  margin: auto !important;
 }
 </style>
