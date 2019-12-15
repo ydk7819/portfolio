@@ -17,46 +17,55 @@
       </v-parallax>
     </section>
 
-    <!-- skills -->
+    <!-- about -->
     <section>
-      <v-layout column wrap class="my-12" align-center>
-        <v-flex class="my-4">
-          <h1 class="display-1 text-center my-5">
-            ABOUT
-          </h1>
-          <div class="row wrap justify-center">
-            <hr class="title_line" />
-          </div>
-        </v-flex>
-
-        <v-flex v-for="(item, i) in about" :key="i.id" content_width>
+      <v-flex class="my-4">
+        <h1 class="display-1 text-center my-5">
+          ABOUT
+        </h1>
+        <div class="row wrap justify-center">
+          <hr class="title_line" />
+        </div>
+      </v-flex>
+      <v-layout row align-center justify-center content_width margin_auto>
+        <v-flex sm8 v-for="(item, i) in about" :key="i.id">
           <h3>{{ item.name }}</h3>
           <p>{{ item.birth }}</p>
-          <h4>education</h4>
 
+          <h3 class="font_gray">education</h3>
           <div v-for="(edu, j) in item.education" :key="j.id">
             {{ edu.date }}
             {{ edu.desc }}
           </div>
-
-          <h4>awards</h4>
+          <br />
+          <h3 class="font_gray">awards</h3>
           <div v-for="(award, j) in item.award" :key="j.id">
             {{ award.date }}
             {{ award.desc }}
           </div>
         </v-flex>
 
-        <v-flex my-12 content_width row wrap justify-center>
-          <v-flex xs12 sm4 px-4 v-for="(item, i) in skill" :key="i.id">
-            <div class="my-4" v-for="(skill, j) in item.language" :key="j.id">
+        <!-- skills -->
+        <v-flex sm4 my-12 row wrap justify-center>
+          <v-flex xs4 v-for="(item, i) in skill" :key="i.id">
+            <v-layout
+              align-center
+              justify-center
+              column
+              v-for="(skill, j) in item.language"
+              :key="j.id"
+            >
               <div class="my-2">{{ skill.name }}</div>
-              <v-progress-linear
+              <v-progress-circular
                 :value="skill.value"
                 :color="item.skill_color"
-                height="10"
-                rounded
-              ></v-progress-linear>
-            </div>
+                :size="50"
+                :rotate="-90"
+                :width="10"
+              >
+                {{ skill.value }}
+              </v-progress-circular>
+            </v-layout>
           </v-flex>
         </v-flex>
       </v-layout>
@@ -337,5 +346,8 @@ export default {
 .title_line {
   width: 70px;
   border: 0.5px solid gray;
+}
+.margin_auto {
+  margin: auto !important;
 }
 </style>
