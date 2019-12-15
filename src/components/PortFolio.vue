@@ -115,17 +115,20 @@
                     max-width="50"
                   ></v-img>
                 </div>
-                <v-btn text small :href="item.pdf" :style="item.buttonStyle">
-                  pdf
+
+                <v-btn icon :href="item.pdf">
+                  <font-awesome-icon
+                    icon="file-pdf"
+                    size="2x"
+                    :style="item.buttonStyle"
+                  />
                 </v-btn>
-                <v-btn
-                  text
-                  small
-                  v-if="item.link != null"
-                  :href="item.link"
-                  class="project_page_button mx-2"
-                >
-                  page
+                <v-btn icon v-if="item.link != null" :href="item.link" mx-2>
+                  <font-awesome-icon
+                    icon="external-link-alt"
+                    size="2x"
+                    :style="item.buttonStyle"
+                  />
                 </v-btn>
               </div>
             </v-layout>
@@ -169,11 +172,11 @@
                   </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title
-                    ><a href="https://www.github.com/ydk7819"
-                      >www.github.com/ydk7819</a
-                    ></v-list-item-title
-                  >
+                  <v-list-item-title>
+                    <a href="https://www.github.com/ydk7819">
+                      www.github.com/ydk7819
+                    </a>
+                  </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item>
@@ -273,7 +276,7 @@ export default {
             border: "1px solid #09A5FE"
           },
           buttonStyle: {
-            background: "#09A5FE"
+            color: "#09A5FE"
           }
         },
         {
@@ -297,7 +300,7 @@ export default {
             border: "1px solid #05D1B9"
           },
           buttonStyle: {
-            background: "#05D1B9"
+            color: "#05D1B9"
           }
         }
       ]
