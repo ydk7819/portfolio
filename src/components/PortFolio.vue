@@ -3,21 +3,15 @@
     <section>
       <v-parallax src="../assets/main.jpg" height="800">
         <v-layout column justify-center align-center>
-          <div>
+          <div v-for="item in intro" :key="item.id">
             <span>HI! I'M</span>
             <div class="display-3 font-weight-black">
-              DongKwon Yang
+              {{ item.name }}
             </div>
             <div class="display-1 mb-10 font-weight-black">
-              FRONTEND ENGINEER
+              {{ item.role }}
             </div>
-            <div>
-              항상 새로움을 찾는 프론트엔드 엔지니어 양동권입니다.
-              <br />
-              다양한 기술을 새롭게 배우며 새로 결과물을 만들어보고 있습니다.
-              <br />
-              정체되지 않고 꾸준히 발전하는 개발자가 되기위해 공부하는 중입니다.
-            </div>
+            <div v-html="item.desc"></div>
           </div>
         </v-layout>
       </v-parallax>
@@ -226,6 +220,14 @@
 export default {
   data() {
     return {
+      intro: [
+        {
+          name: "DongKwon Yang",
+          role: "FRONTEND ENGINEER",
+          desc:
+            "항상 새로움을 찾는 프론트엔드 엔지니어 양동권입니다. <br /> 다양한 기술을 새롭게 배우며 새로 결과물을 만들어보고 있습니다. <br /> 정체되지 않고 꾸준히 발전하는 개발자가 되기위해 공부하는 중입니다."
+        }
+      ],
       about: [
         {
           name: "양동권",
@@ -300,7 +302,7 @@ export default {
           date: "19.07.01 ~ 19.08.16",
           role: "front-end / 관리자기능 / DB설계",
           descript:
-            "팀을 소개하는 랜딩페이지 입니다. <br /> 회원 / 게시글 등록 및 관리가 가능한 반응형 웹입니다. <br /> 로그인, gitlab, 날씨 등의 API를 활용하였습니다.",
+            "팀을 소개하는 랜딩페이지 입니다. <br /> 회원 / 게시글 등록 및 관리가 가능한 반응형 웹입니다. <br /> 로그인, gitlab, 날씨 등의 API를 활용하여 다양한 기능을 제공합니다.",
           skills: [
             { name: "python", src: require("../assets/python.png") },
             { name: "mysql", src: require("../assets/mysql.png") },
@@ -316,6 +318,30 @@ export default {
           },
           buttonStyle: {
             color: "#05D1B9"
+          }
+        },
+        {
+          title: "SAFEFOOD",
+          subtitle: "사용자 식품 섭취 관리 웹",
+          date: "19.03.11 ~ 19.05.16",
+          role: "front-end / back-end",
+          descript:
+            "사용자의 알레르기를 파악하여 건강한 식품 섭취를 도와줍니다. <br /> 식품의 영양정보 검색 및 섭취식품의 영양소 정보를 쉽게 파악할 수 있습니다. <br /> 로그인, gitlab, 날씨 등의 API를 활용하였습니다.",
+          skills: [
+            { name: "java", src: require("../assets/java.png") },
+            { name: "mysql", src: require("../assets/mysql.png") },
+            { name: "jQuery", src: require("../assets/jQuery.png") },
+            { name: "springboot", src: require("../assets/springboot.png") }
+          ],
+          image: require("../assets/safefood.png"),
+          pdf:
+            "https://drive.google.com/open?id=12fF8T0zblFt3hEhLFpMJIvZiWMpcvmnS",
+          styleObject: {
+            width: "100px",
+            border: "1px solid #FACC2E"
+          },
+          buttonStyle: {
+            color: "#FACC2E"
           }
         }
       ]
