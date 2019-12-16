@@ -1,17 +1,23 @@
 <template>
   <div>
     <section>
-      <v-parallax src="../assets/main.jpg" height="600">
-        <v-layout column align-center justify-center>
-          <h1 class="mb-4 display-1 text-center">Hi!</h1>
-          <div class="subheading mb-2 text-center">
-            항상 새로움을 찾는 개발자지망생 양동권입니다.
-          </div>
-          <div class="text-center">
-            해보지 못한 기술들을 새롭게 배우며 다양한 결과물을 만들어보고
-            있습니다.
-            <br />
-            정체되지 않고 꾸준히 발전하는 개발자가 되기위해 공부하는 중입니다.
+      <v-parallax src="../assets/main.jpg" height="800">
+        <v-layout column justify-center align-center>
+          <div>
+            <span>HI! I'M</span>
+            <div class="display-3 font-weight-black">
+              DongKwon Yang
+            </div>
+            <div class="display-1 mb-10 font-weight-black">
+              FRONTEND ENGINEER
+            </div>
+            <div>
+              항상 새로움을 찾는 프론트엔드 엔지니어 양동권입니다.
+              <br />
+              다양한 기술을 새롭게 배우며 새로 결과물을 만들어보고 있습니다.
+              <br />
+              정체되지 않고 꾸준히 발전하는 개발자가 되기위해 공부하는 중입니다.
+            </div>
           </div>
         </v-layout>
       </v-parallax>
@@ -46,7 +52,16 @@
         </v-flex>
 
         <!-- skills -->
-        <v-layout sm4 xs12 my-12 row wrap justify-center>
+        <v-layout
+          sm4
+          xs12
+          my-12
+          row
+          wrap
+          justify-center
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           <v-flex xs4 v-for="(item, i) in skill" :key="i.id">
             <v-layout
               align-center
@@ -93,16 +108,15 @@
           <v-flex xs12 sm6 my-2>
             <v-layout column justify-center fill-height>
               <div>
-                <h1 class="display-2 font-weight-bold font_title">
+                <h1 class="display-2 font-weight-bold font_darkgray">
                   {{ item.title }}
                 </h1>
                 <div class="title mb-2 font_gray font-weight-thin">
                   {{ item.subtitle }}
                 </div>
                 <hr class="project_line mb-2" :style="item.styleObject" />
-                {{ item.date }}
-                <br />
-                {{ item.role }}
+                <h4 class="font_darkgray">{{ item.date }}</h4>
+                <h4 class="mb-2 font_darkgray">{{ item.role }}</h4>
                 <div v-html="item.descript"></div>
 
                 <!-- project_skill -->
@@ -142,6 +156,7 @@
               fill-height
               data-aos="fade-right"
               data-aos-anchor-placement="top-center"
+              data-aos-duration="1000"
             >
               <v-img :src="item.image"></v-img>
             </v-layout>
@@ -259,7 +274,7 @@ export default {
           date: "19.08.19 ~ 19.10.11",
           role: "front-end / 학습모델구현",
           descript:
-            "크롤링한 기사와 댓글을 분석하여 긍/부정을 알려줍니다. <br /> 댓글을 형태소로 나누어 logistic regression으로 분석합니다.",
+            "일반 소비자들의 반응을 통해 해당 기사가 긍정적인 반응이 많은지 부정적인 반응이 많은지를 알려줍니다. <br /> 댓글을 형태소로 나누어 logistic regression으로 분석합니다.",
           skills: [
             { name: "python", src: require("../assets/python.png") },
             { name: "mysql", src: require("../assets/mysql.png") },
@@ -269,7 +284,7 @@ export default {
           ],
           image: require("../assets/ssafyilbo.png"),
           pdf:
-            "https://drive.google.com/file/d/1LcYJDvQiPs1ERVHdRKDoe3nmhBOPVD-D/view?usp=sharing",
+            "https://drive.google.com/open?id=1ihzGmDeQswtg5czPe1Zh_OA0d6fEzVab",
           link: "http://13.125.116.42/",
           styleObject: {
             width: "100px",
@@ -283,9 +298,9 @@ export default {
           title: "10TRILLION",
           subtitle: "팀 포트폴리오 웹/앱",
           date: "19.07.01 ~ 19.08.16",
-          role: "front-end / 관리자 / DB설계",
+          role: "front-end / 관리자기능 / DB설계",
           descript:
-            "팀 소개, 게시글 등록 및 관리가 가능한 반응형 웹입니다. <br /> 로그인, gitlab, 날씨 등의 API를 활용하였습니다.",
+            "팀을 소개하는 랜딩페이지 입니다. <br /> 회원 / 게시글 등록 및 관리가 가능한 반응형 웹입니다. <br /> 로그인, gitlab, 날씨 등의 API를 활용하였습니다.",
           skills: [
             { name: "python", src: require("../assets/python.png") },
             { name: "mysql", src: require("../assets/mysql.png") },
@@ -310,17 +325,20 @@ export default {
 </script>
 
 <style>
+* {
+  font-family: "Nanum Gothic", sans-serif;
+}
 #repository {
   width: 70%;
   margin: auto;
 }
 .project_padding {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
 .section_margin {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 150px;
+  margin-bottom: 150px;
 }
 .background_color {
   padding-top: 100px;
@@ -337,7 +355,7 @@ export default {
 .font_gray {
   color: #585858;
 }
-.font_title {
+.font_darkgray {
   color: #424242;
 }
 .project_line {
