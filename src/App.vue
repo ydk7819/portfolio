@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <font-awesome-icon icon="user-secret" />
     <Header></Header>
     <PortFolio></PortFolio>
   </v-app>
