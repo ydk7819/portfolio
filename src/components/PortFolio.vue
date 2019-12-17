@@ -326,7 +326,7 @@ export default {
           date: "19.03.11 ~ 19.05.16",
           role: "front-end / back-end",
           descript:
-            "사용자의 알레르기를 파악하여 건강한 식품 섭취를 도와줍니다. <br /> 식품의 영양정보 검색 및 섭취식품의 영양소 정보를 쉽게 파악할 수 있습니다. <br /> 로그인, gitlab, 날씨 등의 API를 활용하였습니다.",
+            "사용자의 알레르기를 파악하여 건강한 식품 섭취를 도와줍니다. <br /> 식품의 영양정보 검색 및 섭취식품의 영양소 정보를 쉽게 파악할 수 있습니다.",
           skills: [
             { name: "java", src: require("../assets/java.png") },
             { name: "mysql", src: require("../assets/mysql.png") },
